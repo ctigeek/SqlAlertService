@@ -1,0 +1,27 @@
+﻿{
+    connectionStrings: [
+        { 
+            name: "local", 
+            connectionString:"server=localhost\\SQLEXPRESS;database=sandbox;Integrated Security=SSPI;", 
+            provider:"System.Data.SqlClient"
+        }
+    ],
+    emailConfig : {
+        mailgunApiKey : "",
+        mailgunApiUrl : "",
+        fromEmailAddress : "",
+        toEmailAddressNotify : "",
+        toEmailAddressAlert : ""
+    },
+    alerts: [
+        {
+            name: "test",
+            description: "test",
+            frequency: "0.00:00:10",
+            sqlStatement: "select 'HELLO';",
+            connectionStringName:"local",
+            notifyValue: "hello",
+            alertValue: "2"
+        }
+    ]
+}

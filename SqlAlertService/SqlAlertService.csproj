@@ -38,6 +38,13 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="QueryHelper">
+      <HintPath>..\packages\QueryHelper.2.0.5393.24825\lib\net45\QueryHelper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
@@ -53,11 +60,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionManager.cs" />
-    <Compile Include="SqlAlertService.cs">
+    <Compile Include="Models\AlertConfig.cs" />
+    <Compile Include="Models\ConnectionStringConfig.cs" />
+    <Compile Include="Models\EmailConfig.cs" />
+    <Compile Include="Models\SqlAlertServiceConfig.cs" />
+    <Compile Include="SqlAlertWindowsService.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SqlAlertService.Designer.cs">
-      <DependentUpon>SqlAlertService.cs</DependentUpon>
+    <Compile Include="SqlAlertWindowsService.Designer.cs">
+      <DependentUpon>SqlAlertWindowsService.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,10 +78,13 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="SqlAlertServiceConfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="SqlAlertService.resx">
-      <DependentUpon>SqlAlertService.cs</DependentUpon>
+    <EmbeddedResource Include="SqlAlertWindowsService.resx">
+      <DependentUpon>SqlAlertWindowsService.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
